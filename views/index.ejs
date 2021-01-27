@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>Home</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/Homeuser.css' />
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="header-logo">
+            <img src="/images/cargando-Logo.png" alt="">
+
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="header-menu">            
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Salir</a></li>
+              </ul>
+              <span>Fecha actual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="monto">Monto disponible</h2>
+        </div>
+        <div class="col-12">
+          <div class="caja-disponible">
+            <h3 class="saldo">SALDO</h3>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="caja-ingreso">
+            <button type="button" class="btn btn-success">Ingreso</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="caja-egreso">
+            <button type="button" class="btn btn-success">Egreso</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 </html>
