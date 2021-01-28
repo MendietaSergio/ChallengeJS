@@ -1,6 +1,5 @@
 @import "Homeuser.css";
-
-.caja-login{
+.caja-register{
     width: 223px;
     height: auto;
     border-radius: 5%;
@@ -9,19 +8,19 @@
     position: absolute;
     margin: 16%;
 }
-.caja-login:hover{
+.caja-register:hover{
     box-shadow: 5px 5px 2px #c1ccdf;
 }
-.caja-login form{
+.caja-register form{
     padding: 2px;
 }
-article .btn-login{
+article .btn-register{
     padding-top: 30px;
     display: flex;
     justify-self: start;
     justify-content: space-evenly;    
 }
-article .btn-login .btn{
+article .btn-register .btn{
     border-radius: 13%;
     margin: 3px;
 }

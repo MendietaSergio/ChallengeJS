@@ -7,9 +7,9 @@ module.exports = {
         })
     },
     homeRegister:(req,res) =>{
-        res.render('login',{
+        res.render('register',{
             title: "Registro Usuario",
-            css: "login.css"
+            css: "register.css"
         })
     },
     homeUser: (req,res) =>{

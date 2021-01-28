@@ -1,0 +1,38 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+
+    <body>
+        <!--HEADER MODULARIZADO-->
+        <%- include('./partials/header.ejs')%>
+            <article>
+                <div class="row">
+                    <div class="12">
+                        <div class="caja-register">
+                            <form action="" method="POST">
+                                <label for="text">Nombre: </label>
+                                <input type="text">
+                                <br>
+                                <label for="text">Apellido: </label>
+                                <input type="text">
+                                <br>
+                                <label for="email">Email: </label>
+                                <input type="email">
+                                <br>
+                                <label for="password">Contraseña: </label>
+                                <input type="password">
+                                <br>
+                                <div class="col-12 btn-register">
+                                    <a href="/"><button type="button" class="btn btn-outline-success">Cancelar</button></a>
+                                    <button type="submit" class="btn btn-outline-primary">Aceptar</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </article>
+    </body>
+
+
+    <!--FOOTER MODULARIZADO-->
+    <%- include('./partials/footer.ejs')%>
