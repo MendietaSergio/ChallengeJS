@@ -1,7 +1,19 @@
 
 module.exports = {
-    home: (req,res) =>{
-        res.render('index',{
+    homeLogin: (req,res) =>{
+        res.render('login',{
+            title: "Home Login",
+            css: "login.css"
+        })
+    },
+    homeRegister:(req,res) =>{
+        res.render('login',{
+            title: "Registro Usuario",
+            css: "login.css"
+        })
+    },
+    homeUser: (req,res) =>{
+        res.render('homeuser',{
             title: "Home",
             css: "Homeuser.css"
             })
@@ -23,5 +35,6 @@ module.exports = {
             title: "Extraccion",
             css: "extraction.css"
         })
-    }
+    },
+    
 }

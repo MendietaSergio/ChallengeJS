@@ -3,7 +3,7 @@
 
   <body>
     <!--HEADER MODULARIZADO-->
-    <%-include('./partials/header.ejs')%>
+    <%- include('./partials/header.ejs')%>
       <article>
         <div class="container">
           <div class="row">
@@ -15,19 +15,16 @@
                 <h3 class="saldo">$ 0</h3>
               </div>
             </div>
-            <div class="col-6">
-              <div class="caja-ingreso">
+            <div class="col-12">
+              <div class="caja-btn">
                 <a href="/entry">
                   <button type="button" class="btn btn-success">Ingreso</button>
-                </a>
+                </a> 
+                <a href="/extraction">
+                <button type="button" class="btn btn-success">Egreso</button></a>
               </div>
             </div>
-            <div class="col-6">
-              <div class="caja-egreso">
-                <a href="/extraction"></a>
-                <button type="button" class="btn btn-success">Egreso</button>
-              </div>
-            </div>
+
           </div>
           <div class="row">
 
@@ -83,4 +80,4 @@
       </article>
   </body>
   <!--FOOTER MODULARIZADO-->
-  <%-include('./partials/footer.ejs')%>
+  <%- include('./partials/footer.ejs')%>

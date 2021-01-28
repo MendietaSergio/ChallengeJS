@@ -1,0 +1,12 @@
+@import "Homeuser.css";
+
+.caja-login{
+    width: 223px;
+    height: auto;
+    background-color: blue;
+    position: absolute;
+    margin: 16%;
+}
+.caja-login form{
+    padding: 2px;
+}

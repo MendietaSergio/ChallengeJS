@@ -37,9 +37,11 @@ article .caja-disponible{
 article .saldo{
     text-align: center;
 }
-article .caja-ingreso,.caja-egreso{
+article .caja-btn{
     padding-top: 30px;
-    margin-left: 25%;
+    display: flex;
+    justify-self: start;
+    justify-content: space-evenly;
     
 }
 article .btn{

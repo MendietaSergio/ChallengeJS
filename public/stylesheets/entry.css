@@ -1,1 +1,9 @@
 @import "Homeuser.css";
+@import "editTable.css";
+
+article .caja-input{
+    padding-top: 30px;
+}
+article .caja-input input{
+    border-radius: 10%;
+}
