@@ -40,4 +40,22 @@ article .saldo{
 article .caja-ingreso,.caja-egreso{
     padding-top: 30px;
     margin-left: 25%;
+    
+}
+article .btn{
+    border-radius: 70%;
+}
+
+article .tabla{
+    padding-top: 10px;
+}
+article .table > :not(caption) > * > *{
+    padding: 0px;
+    margin: 0px;
+}
+article th,td{
+    font-size: 12px;
+}
+article .far{
+    font-weight: 30px;
 }

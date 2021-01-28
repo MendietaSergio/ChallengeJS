@@ -1,0 +1,39 @@
+<!--HEAD MODULARIZADO-->
+<%- include('./partials/head.ejs')%>
+
+    <body>
+        <%- include('./partials/header.ejs')%>
+            <article>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="monto">Monto a ingresar</h2>
+                        </div>
+                        <div class="col-12">
+                            <div class="caja-disponible">
+                                <h3 class="saldo">$ 0</h3>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <form action="" method="post">
+                                <div class="col-6">
+                                    <div class="caja-ingreso">
+                                        <button type="submit" class="btn btn-success">Aceptar</button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="caja-egreso">
+                                        <a href="/"></a>
+                                        <button type="button" class="btn btn-success">Cancelar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+    </body>
+    <!--FOOTER MODULARIZADO-->
+    <%- include('./partials/footer.ejs')%>
