@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
+const session = require('express-session');
+
 var app = express();
 
 // view engine setup
@@ -18,6 +20,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret:"sessionOk",
+  resave: true, // se agrega linea resave y saveunintializated para evitar error en consola deprecated
+  saveUninitialized: true
+}));
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

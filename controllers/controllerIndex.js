@@ -1,40 +1,92 @@
+const db = require('../database/models');
 
+const bcrypt = require('bcrypt');
+const { validationResult, Result } = require('express-validator');
 module.exports = {
-    homeLogin: (req,res) =>{
-        res.render('login',{
+    homeLogin: (req, res) => {
+        res.render('login', {
             title: "Home Login",
             css: "login.css"
         })
     },
-    homeRegister:(req,res) =>{
-        res.render('register',{
+    processLogin: (req,res) =>{
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            db.Usuario.findOne({
+                where:{
+                    email: req.body.email
+                }
+            })
+            .then(user =>{
+                res.session.user = {
+                    id : user.id,
+                    nick : user.nombre + " " + user.apellido,
+                    email: user.email,
+                    rol: user.rol
+                }
+                res.locals.user = req.session.user;
+                return res.redirect("/homeuser")
+            })
+            .catch(error =>{
+                res.send(error)
+            })
+        } else {
+            res.render('login', {
+                title: "Home Login",
+                css: "login.css",
+                errors: errors.mapped(),
+                old: req.body
+            })
+        }
+    },
+    homeRegister: (req, res) => {
+        console.log("estoy en homeregister");
+        res.render('register', {
             title: "Registro Usuario",
-            css: "register.css"
+            css: "register.css",
         })
     },
-    homeUser: (req,res) =>{
-        res.render('homeuser',{
+    processRegister: (req, res) => {
+        console.log("process register");
+        
+        console.log(req.body);
+        db.Usuario.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+
+        })
+            .then(resultado =>{
+                res.redirect('/')
+            })
+            .catch(error=> res.send(error))
+        
+
+    },
+    homeUser: (req, res) => {
+        res.render('homeuser', {
             title: "Home",
             css: "Homeuser.css"
-            })
+        })
     },
-    editTable: (req,res) =>{
-        res.render('editTable',{
+    editTable: (req, res) => {
+        res.render('editTable', {
             title: "Editar Tabla",
             css: "editTable.css"
         })
     },
-    entry: (req,res) =>{
-        res.render('entry',{
+    entry: (req, res) => {
+        res.render('entry', {
             title: "Ingreso",
             css: "entry.css"
         })
     },
-    extraction: (req,res) =>{
-        res.render('extraction',{
+    extraction: (req, res) => {
+        res.render('extraction', {
             title: "Extraccion",
             css: "extraction.css"
         })
     },
-    
+
 }

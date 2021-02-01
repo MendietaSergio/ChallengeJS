@@ -10,26 +10,21 @@ module.exports = (sequelize, dataTypes) =>{
         },
         monto : {
             type : dataTypes.STRING(100),
-            allowNull : false
         },
         fecha : {
             type : dataTypes.DATE(),
-            allowNull : false
         },
         tipo : {
             type : dataTypes.STRING(100),
-            allowNull : false 
         },
         concepto : {
             type: dataTypes.STRING(100),
-            allowNull: false
         }
     }
 
     let config = {
         tableName : "cuenta_bancaria",
-        timestamps : true,
-        underscored : true
+        timestamps : false
     }
 
     const CuentaBancaria = sequelize.define(alias, cols,config);
