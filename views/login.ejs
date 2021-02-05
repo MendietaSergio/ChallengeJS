@@ -8,17 +8,17 @@
                 <div class="row">
                     <div class="12">
                         <div class="caja-login">
-                            <form action="/" method="POST">
+                            <form action="" method="POST">
                                 <label for="email"><i class="far fa-user"></i></label>
-                                <input type="email" placeholder="example@gmail.com" required>
+                                <input type="email" placeholder="example@gmail.com" name="email" required>
                                 <small class="text-danger" id="errorEmail">
                                     <%= (typeof errors !='undefined' && errors.email)?errors.email.msg: "" %>
                                 </small>
                                 <br>
                                 <label for="password"><i class="fas fa-key"></i></label>
-                                <input type="password" placeholder="4 a 6 caracteres." required>
+                                <input type="password" placeholder="4 a 6 caracteres." name="password" required>
                                 <small class="text-danger" id="errorPass">
-                                    <%= (typeof errors !='undefined' && errors.passwprd)?errors.password.msg: "" %>
+                                    <%= (typeof errors !='undefined' && errors.password)?errors.password.msg: "" %>
                                 </small>
                                 <div class="col-12 btn-login">
                                     <a href="/register" ><button type="button" class="btn btn-outline-success">Creá tu

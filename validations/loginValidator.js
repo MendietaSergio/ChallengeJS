@@ -7,11 +7,12 @@ const db = require('../database/models');
 /*
 REQUERIMOS LOS MODELOS DE LA BASE DE DATOS CREADAS CON SEQUELIZE Y MODIFICAMOS EL CODIGO PARA HACER USO DE ESO.
 */
-module.exports = [
-    
+module.exports = [    
     check('email')
     .isEmail()
-    .withMessage("Debes ingresar un email válido"),
+    .isLength({ 
+        min:1
+    }).withMessage("Debe ingresar un mail valido"),
 
     check('password')
     .isLength({

@@ -18,17 +18,13 @@ module.exports = {
                 }
             })
                 .then(user => {
-                    res.session.user = {
-                        id: user.id,
-                        nick: user.nombre + " " + user.apellido,
-                        email: user.email,
-                        rol: user.rol
-                    }
-                    res.locals.user = req.session.user;
-                    return res.redirect("/homeuser")
+                    console.log("aca entra");
+                    console.log(req.body);
+                    return redirect("homeuser")
                 })
                 .catch(error => {
-                    res.send(error)
+                    console.log("aca no");
+                    res.send(error);
                 })
         } else {
             res.render('login', {
@@ -60,7 +56,7 @@ module.exports = {
                     res.redirect('/')
                 })
                 .catch(error => res.send(error))
-        }else{
+        } else {
             res.render('register', {
                 title: "Registro Usuario",
                 css: "register.css",
@@ -68,9 +64,6 @@ module.exports = {
                 old: req.body
             })
         }
-
-
-
     },
     homeUser: (req, res) => {
         res.render('homeuser', {
