@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const localsUserCheck = require('./middlewares/localsUserCheck')
 var indexRouter = require('./routes/index');
 
 const session = require('express-session');
@@ -25,6 +26,7 @@ app.use(session({
   resave: true, // se agrega linea resave y saveunintializated para evitar error en consola deprecated
   saveUninitialized: true
 }));
+app.use(localsUserCheck);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

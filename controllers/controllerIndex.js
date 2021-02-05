@@ -18,9 +18,14 @@ module.exports = {
                 }
             })
                 .then(user => {
-                    console.log("aca entra");
-                    console.log(req.body);
-                    return redirect("homeuser")
+                    req.session.user = {
+                        id: user.id,
+                        nick: user.nombre +" "+user.apellidom,
+                        email: user.email,
+                        rol: user.rol
+                    }
+                    res.locals.user = req.session.user;
+                    return res.redirect("homeuser")
                 })
                 .catch(error => {
                     console.log("aca no");
