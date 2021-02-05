@@ -8,21 +8,39 @@
                 <div class="row">
                     <div class="12">
                         <div class="caja-register">
-                            <form action="/register" method="POST" >
+                            <form action="/register" method="POST">
                                 <label for="text">Nombre: </label>
                                 <input type="text" placeholder="Nombre" name="nombre" required>
+                                <small class="text-danger" id="errorNombre">
+                                    <%= (typeof errors !='undefined' && errors.nombre)?errors.nombre.msg: "" %>
+                                </small>
                                 <br>
                                 <label for="text">Apellido: </label>
                                 <input type="text" placeholder="Apellido" name="apellido" required>
+                                <small class="text-danger" id="errorNombre">
+                                    <%= (typeof errors !='undefined' && errors.apellido)?errors.apellido.msg: "" %>
+                                </small>
                                 <br>
                                 <label for="email">Email: </label>
                                 <input type="email" placeholder="Email" name="email" required>
+                                <small class="text-danger" id="errorNombre">
+                                    <%= (typeof errors !='undefined' && errors.email)?errors.email.msg: "" %>
+                                </small>
                                 <br>
                                 <label for="password">Contraseña: </label>
                                 <input type="password" placeholder="Contraseña" name="password" required>
+                                <small class="text-danger" id="errorNombre">
+                                    <%= (typeof errors !='undefined' && errors.password)?errors.password.msg: "" %>
+                                </small>
                                 <br>
+                                <label for="password2">Repita la contraseña: </label>
+                                <input type="password" placeholder="Contraseña" name="password2" required>
+                                <small class="text-danger" id="errorNombre">
+                                    <%= (typeof errors !='undefined' && errors.password2)?errors.password2.msg: "" %>
+                                </small>
                                 <div class="col-12 btn-register">
-                                    <a href="/"><button type="button" class="btn btn-outline-success">Cancelar</button></a>
+                                    <a href="/"><button type="button"
+                                            class="btn btn-outline-success">Cancelar</button></a>
                                     <button type="submit" class="btn btn-outline-primary">Aceptar</button>
                                 </div>
                             </form>

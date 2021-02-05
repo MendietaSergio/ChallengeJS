@@ -9,27 +9,27 @@ module.exports = {
             css: "login.css"
         })
     },
-    processLogin: (req,res) =>{
+    processLogin: (req, res) => {
         let errors = validationResult(req);
-        if(errors.isEmpty()){
+        if (errors.isEmpty()) {
             db.Usuario.findOne({
-                where:{
+                where: {
                     email: req.body.email
                 }
             })
-            .then(user =>{
-                res.session.user = {
-                    id : user.id,
-                    nick : user.nombre + " " + user.apellido,
-                    email: user.email,
-                    rol: user.rol
-                }
-                res.locals.user = req.session.user;
-                return res.redirect("/homeuser")
-            })
-            .catch(error =>{
-                res.send(error)
-            })
+                .then(user => {
+                    res.session.user = {
+                        id: user.id,
+                        nick: user.nombre + " " + user.apellido,
+                        email: user.email,
+                        rol: user.rol
+                    }
+                    res.locals.user = req.session.user;
+                    return res.redirect("/homeuser")
+                })
+                .catch(error => {
+                    res.send(error)
+                })
         } else {
             res.render('login', {
                 title: "Home Login",
@@ -48,20 +48,28 @@ module.exports = {
     },
     processRegister: (req, res) => {
         console.log("process register");
-        
-        console.log(req.body);
-        db.Usuario.create({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-
-        })
-            .then(resultado =>{
-                res.redirect('/')
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            db.Usuario.create({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
             })
-            .catch(error=> res.send(error))
-        
+                .then(resultado => {
+                    res.redirect('/')
+                })
+                .catch(error => res.send(error))
+        }else{
+            res.render('register', {
+                title: "Registro Usuario",
+                css: "register.css",
+                errors: errors.mapped(),
+                old: req.body
+            })
+        }
+
+
 
     },
     homeUser: (req, res) => {

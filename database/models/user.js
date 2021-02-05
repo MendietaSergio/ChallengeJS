@@ -10,18 +10,19 @@ module.exports = (sequelize, dataTypes) =>{
         },
         nombre :{
             type : dataTypes.STRING(100),
+            allowNull : false,
         },
         apellido :{
             type : dataTypes.STRING(100),
-        },
-        rol :{
-            type : dataTypes.STRING(100),
+            allowNull : false,
         },
         email :{
             type : dataTypes.STRING(45),
+            allowNull : false,
         },
         password :{
             type : dataTypes.STRING(100),
+            allowNull : false,
         },
         cuenta_id :{
             type : dataTypes.INTEGER(11)
