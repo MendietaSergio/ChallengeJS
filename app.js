@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const localsUserCheck = require('./middlewares/localsUserCheck')
+const localsUserCheck = require('./middlewares/localsUserCheck.js')
 var indexRouter = require('./routes/index');
 
 const session = require('express-session');

@@ -20,10 +20,11 @@ module.exports = {
                 .then(user => {
                     req.session.user = {
                         id: user.id,
-                        nick: user.nombre +" "+user.apellidom,
+                        nick: user.nombre +" "+user.apellido,
                         email: user.email,
                         rol: user.rol
                     }
+                    
                     res.locals.user = req.session.user;
                     return res.redirect("homeuser")
                 })
@@ -74,6 +75,7 @@ module.exports = {
         res.render('homeuser', {
             title: "Home",
             css: "Homeuser.css"
+
         })
     },
     editTable: (req, res) => {
