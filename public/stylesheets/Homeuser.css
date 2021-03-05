@@ -9,14 +9,22 @@ header img{
 }
 header a{
     color: #000000;
-    float: right;
+    float: right;    
     position: relative;
     top: 23px;
 }
 header span{
-    float: right;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    bottom: -30px;
+}
+header .invitado{
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
     position: relative;
+    float: right;
     bottom: -30px;
 }
 header .dropdown-item{

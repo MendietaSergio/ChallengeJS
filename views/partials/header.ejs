@@ -9,20 +9,18 @@
         </div>
         <div class="col-6">
           <div class="header-menu">
+            <% if(typeof user != 'undefined'){ %> 
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Menu
-            </a>
+              data-bs-toggle="dropdown" aria-expanded="false"><span><%= locals.user.nick%></span> </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Perfil <i class="fas fa-sign-in-alt "></i></a></li>
               <li><a class="dropdown-item" href="/logout">Salir <i class="fas fa-sign-in-alt "></i></a></li>
             </ul>
+            <% }else{%>
+              <span class="invitado" >Invitado</span> 
+            <% } %> %> 
             <div class="usuario">
-              <% if (typeof user != "undefined") { %>
-                <span class="nick"><%= locals.user.nick%> </span>
-              <% } else{%>
-                <span>Invitado</span> 
-              <% } %>
+              
             </div>
           </div>
         </div>
