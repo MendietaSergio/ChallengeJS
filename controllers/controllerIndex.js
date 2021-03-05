@@ -24,12 +24,12 @@ module.exports = {
                         email: user.email,
                         rol: user.rol
                     }
-                    
-                    res.locals.user = req.session.user;
+                    if(req.body.recordar){
+                        res.cookie('userHomeBanking', req.session.user, {maxAge: 1000 * 60 *60});
+                    }
                     return res.redirect("homeuser")
                 })
                 .catch(error => {
-                    console.log("aca no");
                     res.send(error);
                 })
         } else {
@@ -50,6 +50,7 @@ module.exports = {
     },
     processRegister: (req, res) => {
         console.log("process register");
+        let cuentaid =  0;
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.Usuario.create({
@@ -57,6 +58,7 @@ module.exports = {
                 apellido: req.body.apellido,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
+                rol_id: 2
             })
                 .then(resultado => {
                     res.redirect('/')
@@ -71,6 +73,14 @@ module.exports = {
             })
         }
     },
+    logout: (req,res)=>{
+        req.session.destroy()
+        if(req.cookies.userHomeBanking){
+            res.cookie('userHomeBanking', ' ',{maxAge: -1});
+        }
+        return res.redirect('/');
+    }
+    ,
     homeUser: (req, res) => {
         res.render('homeuser', {
             title: "Home",
@@ -89,6 +99,38 @@ module.exports = {
             title: "Ingreso",
             css: "entry.css"
         })
+    },
+    saveEntry: (req,res) =>{
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            db.Usuario.findOne({
+                where: {
+                    id: req.session.user.id
+                },    
+            })
+                .then(entry =>{
+                    db.CuentaBancaria.create({
+                        monto:req.ingreso.trim(),
+                        fecha: 00/00/0000,
+                        tipo: 1,
+                        concepto: req.concepto
+                    })
+                })
+                .then(() => {    
+                    return res.redirect("/homeuser")
+                })
+                .catch(error => {
+                    console.log("aca no");
+                    res.send(error);
+                })
+        } else {
+            res.render('entry', {
+                title: "Ingreso",
+                css: "entry.css",
+                errors: errors.mapped(),
+                old: req.body
+            })
+        }
     },
     extraction: (req, res) => {
         res.render('extraction', {

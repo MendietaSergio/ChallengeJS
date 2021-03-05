@@ -38,6 +38,14 @@ module.exports = (sequelize, dataTypes) =>{
     }
 
     const Usuario = sequelize.define(alias, cols, config);
+/*
+    Usuario.associate = function(models){
+        Usuario.hasOne(models.CuentaBancaria,{
+            as:"cuenta",
+            foreignKey: "cuenta_id"
+        })
+            
+    }*/
 
     return Usuario;
 }

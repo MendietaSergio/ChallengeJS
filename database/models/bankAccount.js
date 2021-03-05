@@ -2,7 +2,7 @@ module.exports = (sequelize, dataTypes) =>{
     let alias = "CuentaBancaria";
 
     let cols = {
-        id_cuenta : {
+        id : {
             type : dataTypes.INTEGER(11),
             allowNull : false,
             autoIncrement : true,
@@ -28,6 +28,14 @@ module.exports = (sequelize, dataTypes) =>{
     }
 
     const CuentaBancaria = sequelize.define(alias, cols,config);
+/*
+    CuentaBancaria.associate = function(models){
+
+        CuentaBancaria.hasOne(models.Usuario,{
+            as:"responsable",
+            foreignKey: "id"
+        })
+    }*/
 
     return CuentaBancaria;
 }
